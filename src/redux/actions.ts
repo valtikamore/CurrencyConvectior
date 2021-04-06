@@ -22,17 +22,28 @@ export const ChangeCurrencyFieldAC = (amountOfBYN: string, amountOfCurrency: str
 };
 
 export type ChangeAction = {
+    type: ACTIONS_TYPE.CHANGE_CHANGE_ACTION
+    payload: { isBuying: boolean }
 };
 
-// @ts-ignore
 export const ChangeActionAC = (isBuying: boolean): ChangeAction => {
+    return {
+        type: ACTIONS_TYPE.CHANGE_CHANGE_ACTION,
+        payload: {isBuying}
+    }
 };
 
 export type ChangeCurrentCurrencyType = {
+    type: ACTIONS_TYPE.CHANGE_CURRENT_CURRENCY
+    payload: { currentCurrency: string }
 };
 
-// @ts-ignore
-export const СhangeCurrentCurrencyAC = (currentCurrency: string): ChangeCurrentCurrencyType => {
+
+export const ChangeCurrentCurrencyAC = (currentCurrency: string): ChangeCurrentCurrencyType => {
+    return {
+        type: ACTIONS_TYPE.CHANGE_CURRENT_CURRENCY,
+        payload: {currentCurrency}
+    }
 };
 
 export type CurrencyReducersTypes = ChangeCurrencyFieldType | ChangeAction | ChangeCurrentCurrencyType;

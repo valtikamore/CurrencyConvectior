@@ -1,25 +1,26 @@
 import React from 'react';
-import { CurrencyType } from '../../redux/currencyReducer';
+import {CurrencyType} from '../../redux/currencyReducer';
 import {
     ChangeActionAC,
     ChangeCurrencyFieldAC,
     ChangeCurrentCurrencyAC,
-     typedDispatch
+    TypedDispatch
 } from '../../redux/actions';
-import { useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
 import {selectCurrencyState} from "../../redux/selector";
 
+
 const CurrencyEContainer: React.FC = () => {
 
-    const dispatch = typedDispatch()
+    const dispatch = TypedDispatch()
     const {
-            currencies,
-            currentCurrency,
-            isBuying,
-            amountOfBYN,
-            amountOfCurrency,
-        } = useSelector(selectCurrencyState);
+        currencies,
+        currentCurrency,
+        isBuying,
+        amountOfBYN,
+        amountOfCurrency,
+    } = useSelector(selectCurrencyState);
 
     let currencyRate: number = 0;
     const currenciesName = currencies.map((currency: CurrencyType) => {
@@ -36,7 +37,7 @@ const CurrencyEContainer: React.FC = () => {
             const trigger: string = e.currentTarget.dataset.currency;
             if (trigger === 'byn') {
                 if (value === '') {
-                    dispatch ( ChangeCurrencyFieldAC(value,value))
+                    dispatch(ChangeCurrencyFieldAC(value, value))
                 } else {
                     dispatch(ChangeCurrencyFieldAC(value, (+Number(value).toFixed(2) / currencyRate).toFixed(2)))
                 }
@@ -71,3 +72,4 @@ const CurrencyEContainer: React.FC = () => {
         </React.Fragment>
     );
 };
+export default CurrencyEContainer

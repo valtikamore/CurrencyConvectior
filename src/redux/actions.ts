@@ -49,7 +49,7 @@ export const ChangeCurrentCurrencyAC = (currentCurrency: string): ChangeCurrentC
 };
 
 export type CurrencyReducersTypes = ChangeCurrencyFieldType | ChangeAction | ChangeCurrentCurrencyType;
-export function typedDispatch() {
+export function TypedDispatch() {
     const dispatch = useDispatch()
     return(ac:CurrencyReducersTypes) => dispatch(ac)
 }
